@@ -34,5 +34,18 @@ class ParserSpec extends FlatSpec with MustMatchers {
     result1 must equal(Success(AST.ReceiptTo(AST.Email("boss", "somewhere.org")), input1.size))
   }
 
+  "CompleteEmail" must "parse a complete email" in {
+    val email = """To: "Bob" <bob@eve>
+      |To: "Terry Lastname" <terry lastname@eve>
+      |Subject: cool evemail
+      |
+      |Body goes here
+      |Yup
+      |it's a multiline body
+    """.stripMargin
+    val res = Parser.completeEmail.parse(email)
+    println(res)
+  }
+
 
 }

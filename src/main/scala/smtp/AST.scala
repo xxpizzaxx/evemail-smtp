@@ -20,6 +20,7 @@ object AST {
 
 
 
+  case class CompleteEmail(to: List[Email], subject: String, body: String)
 
 
 
